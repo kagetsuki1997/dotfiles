@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ ! -e "$HOME/screenshots" ]]; then
+    mkdir "$HOME/screenshots"
+fi
+
+scrot 'screenshot-%Y%m%d_%H%M%S.png' -e 'mv $f ~/screenshots'

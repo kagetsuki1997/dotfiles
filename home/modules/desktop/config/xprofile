@@ -1,0 +1,25 @@
+#!/bin/sh
+
+export TERMINAL="alacritty"
+
+export XIM_PROGRAM="fcitx"
+export XIM="fcitx"
+export XIM_ARGS="-d"
+export GTK_IM_MODULE="fcitx"
+export QT_IM_MODULE="fcitx"
+export ECORE_IMF_MODULE="xim"
+export XMODIFIERS="@im=fcitx"
+
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+## Disable screen saver
+xset s off
+xset -dpms
+xset s noblank
+
+## Set keyboard auto repeat delay and repeat rate
+xset r rate 200 25
+
+## Start `ssh-agent`
+eval $(ssh-agent -s)

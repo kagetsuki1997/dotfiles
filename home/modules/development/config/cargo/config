@@ -1,0 +1,18 @@
+[alias]
+b = "build"
+c = "check"
+t = "test"
+r = "run"
+rr = "run --release"
+
+[build]
+rustc-wrapper = "sccache"
+
+[http]
+timeout = 30                # timeout for each HTTP request, in seconds
+low-speed-limit = 10        # network timeout threshold (bytes/sec)
+check-revoke = true         # check for SSL certificate revocation
+multiplexing = true         # HTTP/2 multiplexing
+user-agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:105.0) Gecko/20100101 Firefox/105.0"
+
+# vim:filetype=toml

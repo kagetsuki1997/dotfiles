@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [[ ! -e "$HOME/screenshots" ]]; then
+    mkdir "$HOME/screenshots"
+fi
+
+FILENAME=$(scrot "$HOME/screenshots/screenshot-%Y%m%d_%H%M%S.png" -e 'echo $f')
+
+if [ -x "$(command -v notify-send)" ]; then
+    notify-send \
+        --app-name="Screenshot" \
+        --icon="camera" \
+        'Screenshot is saved' $FILENAME \
+        &
+    >/dev/null &
+fi

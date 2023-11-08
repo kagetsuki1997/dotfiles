@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+export BASH_CONFIG="$XDG_CONFIG_HOME/bash"
+export BASH_CACHE="$XDG_CACHE_HOME/bash"
+
+mkdir -p $BASH_CACHE
+
+[[ -s "$BASH_CONFIG/config.d/history.sh" ]] && source "$BASH_CONFIG/config.d/history.sh"
+[[ -s "$BASH_CONFIG/aliases.d/aliases.sh" ]] && source "$BASH_CONFIG/aliases.d/aliases.sh"
+[[ -s "$BASH_CONFIG/aliases.d/aliases-yawerty.sh" ]] && source "$BASH_CONFIG/aliases.d/aliases-yawerty.sh"
+
+function _update_ps1() {
+    eval "$(powerline-go -colorize-hostname -cwd-mode plain -error $? -shell bash -eval -jobs $(jobs -p | wc -l) -modules user,host,cwd,git,kube,aws,jobs,exit)"
+}
+
+if [ "$TERM" != "linux" ] && type powerline-go >/dev/null 2>&1; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi

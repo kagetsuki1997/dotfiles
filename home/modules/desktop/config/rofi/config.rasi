@@ -1,0 +1,20 @@
+/*-*- mode: css; -*-*/
+
+configuration {
+  font: "Monaco 13";
+
+  terminal: "alacritty";
+
+  ssh-client: "ssh";
+  ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
+
+  show-icons: true;
+
+  sidebar-mode: true;
+
+  cycle: true;
+}
+
+@theme "Arc"
+
+/* vim:ft=css

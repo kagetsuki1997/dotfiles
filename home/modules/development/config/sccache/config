@@ -1,0 +1,6 @@
+[cache.s3]
+bucket = "sccache"
+endpoint = "s3.qiaohe.fst.network/sccache"
+use_ssl = true
+key_prefix = ""
+

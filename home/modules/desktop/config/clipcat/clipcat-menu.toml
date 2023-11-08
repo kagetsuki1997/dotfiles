@@ -1,0 +1,11 @@
+server_host = "127.0.0.1"
+server_port = 45045
+finder = "rofi"
+
+[rofi]
+menu_length = 20
+line_length = 100
+
+[dmenu]
+menu_length = 30
+line_length = 100

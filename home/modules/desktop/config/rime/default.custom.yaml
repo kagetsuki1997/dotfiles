@@ -1,0 +1,15 @@
+# Rime custom settings
+# encoding: utf-8
+
+patch:
+  schema_list:
+    - schema: bopomofo_tw
+    - schema: bopomofo
+    - schema: luna_pinyin
+    - schema: luna_pinyin_simp
+    - schema: luna_pinyin_fluency
+    - schema: jyutping
+    - schema: cangjie5
+
+  menu:
+    page_size: 10

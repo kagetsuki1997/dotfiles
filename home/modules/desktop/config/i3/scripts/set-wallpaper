@@ -1,0 +1,7 @@
+#!/bin/sh
+
+WALLPAPER="$HOME/.local/share/wallpapers/default.png"
+
+echo "Set wallpaper $WALLPAPER"
+
+feh --bg-scale $WALLPAPER

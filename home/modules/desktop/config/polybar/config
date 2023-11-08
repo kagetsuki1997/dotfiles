@@ -1,0 +1,431 @@
+[commands]
+screenlock = $HOME/.config/polybar/screenlock.sh
+prompt = $HOME/.config/polybar/prompt.sh
+new-terminal = $HOME/.config/polybar/new-terminal.sh $HOME
+new-terminal-ramdisk = $HOME/.config/polybar/new-terminal.sh $HOME/ramdisk
+
+update-coin-exchange-rate = xenon cryptocurrency-price --show-fallback-message BTC,DOT,ETH
+show-coin-exchange-rate = $HOME/.config/polybar/show-coin-exchange-rate.sh
+
+[colors]
+background = #ec1e1e1e
+foreground = #d1d1d1
+background-alt = #bd565656
+foreground-alt = #44ffffff
+foreground-connected = #eee
+foreground-disconnected = #ccf92f32
+foreground-muted = #ccf92f32
+foreground-fill = #55aa55
+primary = #14ccf5
+secondary = #e60053
+alert = #bd2c40
+lock = #e60053
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+
+[bar/main-top]
+dpi = -1
+monitor = ${env:MONITOR}
+monitor-fallback =
+
+modules-left = ewmh xwindow
+modules-center =
+modules-right = backlight-acpi pulseaudio battery wired wireless date screenlock
+
+bottom = false
+width = 100%
+height = 3%
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "WenQuanYi Micro Hei:size=11"
+font-1 = "Noto Sans CJK TC Regular:style=Regular:size=11"
+font-2 = "Font Awesome 5 Free Regular:style=Regular:size=11"
+font-3 = "Font Awesome 5 Free Solid:style=Solid:size=11"
+font-4 = "Font Awesome 5 Brands Regular:style=Regular:size=11"
+font-5 = "FontAwesome:size=11"
+font-6 = "Ionicons:style=Medium:size=11"
+font-7 = "siji:size=11"
+font-8 = "symbola:size=11"
+
+enable-scroll = false
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+;border-top-size = 0
+;border-bottom-size = 3
+;border-left-size = 12
+;border-right-size = 12
+;border-color = #00000000
+
+[bar/main-bottom]
+dpi = -1
+monitor = ${env:MONITOR}
+monitor-fallback =
+
+modules-left = prompt cpu memory filesystem coin-exchange-rate
+modules-center =
+modules-right = mpd
+
+fixed-center = true
+
+bottom = true
+width = 100%
+height = 3%
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+font-0 = "WenQuanYi Micro Hei:size=11"
+font-1 = "Noto Sans CJK TC Regular:style=Regular:size=11"
+font-2 = "Font Awesome 5 Free Regular:style=Regular:size=11"
+font-3 = "Font Awesome 5 Free Solid:style=Solid:size=11"
+font-4 = "Font Awesome 5 Brands Regular:style=Regular:size=11"
+font-5 = "FontAwesome:size=11"
+font-6 = "Ionicons:style=Medium:size=11"
+font-7 = "siji:size=11"
+font-8 = "symbola:size=11"
+
+tray-position = right
+tray-padding = 0
+tray-background = ${colors.background}
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 2
+module-margin-right = 2
+
+;border-top-size = 2
+;border-bottom-size = 2
+;border-left-size = 12
+;border-right-size = 12
+;border-color = #00000000
+
+
+[module/mpd]
+type = internal/mpd
+
+host = "/tmp/mpd-socket"
+;host = 127.0.0.1
+;port = 6600
+password =
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 5
+
+format-online = <label-song> <bar-progress> <icon-prev> <icon-seekb> <toggle> <icon-seekf> <icon-next>
+label-offline = mpd is offline
+
+icon-prev = 
+icon-seekb = 
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-seekf = 
+icon-next = 
+
+label-song =  %artist% - %title%
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 25
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+bar-progress-fill-foreground = ${colors.foreground-fill}
+
+toggle-on-foreground = ${colors.foreground-alt}
+toggle-off-foreground = #55
+
+
+[module/screenlock]
+type = custom/text
+
+content = 
+content-foreground = ${colors.lock}
+
+click-left = ${commands.screenlock}
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:50:...%
+
+;[module/myip]
+;type = custom/script
+;exec = xenon myip
+;format = <label>
+;interval = 3600
+
+[module/prompt]
+type = custom/script
+exec = ${commands.prompt}
+format = <label>
+label = %output%
+label-foreground = ${colors.foreground}
+interval = 3600
+click-left = ${commands.new-terminal}
+click-right = ${commands.new-terminal-ramdisk}
+
+[module/coin-exchange-rate]
+type = custom/script
+exec = ${commands.update-coin-exchange-rate}
+format = <label>
+label = %output%
+label-foreground = ${colors.foreground}
+interval = 300
+format-underline = #4bb5d3
+click-left = ${commands.show-coin-exchange-rate}
+
+[module/ewmh]
+type = internal/xworkspaces
+
+label-active = "  %name%  "
+label-active-foreground = ${colors.foreground}
+label-active-background = ${colors.background-alt}
+label-active-underline = ${colors.primary}
+label-occupied = "  %name%  "
+label-occupied-underline = ${colors.secondary}
+label-urgent = "  %name%  "
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.background}
+label-urgent-underline  = ${colors.alert}
+label-empty = "  %name%  "
+label-empty-foreground = ${colors.foreground}
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <ramp> <label>
+label = %percentage%
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+
+[module/cpu]
+type = internal/cpu
+interval = 5
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+
+format = <label>
+; Available tokens:
+;   %percentage% (default) - total cpu load
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label = " CPU %percentage%% "
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/memory]
+type = internal/memory
+interval = 5
+;format-prefix = " "
+;format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #a3f783
+label = " Mem %percentage_used%% "
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /
+mount-1 = /home
+mount-2 = /tmp
+
+interval = 60
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 2
+
+label-mounted = "%mountpoint%: %free%"
+
+[module/wireless]
+type = internal/network
+interface = wlan0
+interval = 1.0
+
+format-connected = <label-connected>
+;format-connected = <ramp-signal> <label-connected>
+;format-connected-underline = #9f78e1
+label-connected = %{F#42c2f4} %signal%% %essid%%{F-} ↓ %downspeed% | ↑ %upspeed%
+
+format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected =  %ifname%
+label-disconnected-foreground = ${colors.foreground-disconnected}
+
+;ramp-signal-0 = 
+;ramp-signal-1 = 
+;ramp-signal-2 = 
+;ramp-signal-3 = 
+;ramp-signal-4 = 
+;ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/wired]
+type = internal/network
+interface = eth0
+interval = 1.0
+
+format-connected-prefix =
+format-connected-prefix-foreground = ${colors.foreground-connected}
+label-connected-foreground = ${colors.foreground-connected}
+label-connected = %{F#42c2f4} %ifname%%{F-} ↓ %downspeed% | ↑ %upspeed%
+
+;format-disconnected =
+format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname%
+label-disconnected-foreground = ${colors.foreground-disconnected}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %Y-%m-%d
+date-alt = %m-%d
+
+time = %H:%M:%S
+time-alt = %H:%M
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+;format-underline = #00fff5
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+label-volume =   %percentage%%
+
+label-volume-foreground = ${root.foreground}
+
+;format-muted-prefix = ""
+;format-muted-prefix = "No sound"
+format-muted-foreground = ${colors.foreground-muted}
+label-muted = 
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+bar-volume-width = 12
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+;format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix =
+format-full-prefix-foreground = ${colors.foreground}
+;format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
+; vim:ft=dosini

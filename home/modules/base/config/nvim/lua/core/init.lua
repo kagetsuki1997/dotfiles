@@ -1,0 +1,5 @@
+require("core.filetypes")
+require("core.clipboard")
+require("core.fcitx")
+require("core.common")
+require("core.keybinds")

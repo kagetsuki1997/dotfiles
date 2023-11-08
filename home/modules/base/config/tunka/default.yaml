@@ -1,0 +1,11 @@
+control_path_directory: "/tmp/tunka-$USER"
+
+tunnels:
+  - type: docker
+    name: tor
+    description: "Tor"
+    image_name: tunka-tor
+    container_name: tor
+    container_port: 9050
+    listen_host: onion.local
+    listen_port: 3128

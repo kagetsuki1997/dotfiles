@@ -1,0 +1,14 @@
+#!/bin/sh
+
+DEST_DIR_PREFIX=/tmp
+
+PROJECT_NAME=$(basename $(pwd))
+DEST_DIR="$DEST_DIR_PREFIX/$PROJECT_NAME-$RANDOM"
+
+if [[ -e target ]]; then
+    mv target $DEST_DIR
+else
+    mkdir -pv $DEST_DIR
+fi
+
+ln -s $DEST_DIR target

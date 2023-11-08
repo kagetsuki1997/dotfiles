@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p target/
+sudo mount -t tmpfs none target

@@ -1,0 +1,228 @@
+
+# Constants
+set $launcher-run-launcher        rofi -show run
+set $launcher-ssh-launcher        rofi -show ssh
+set $launcher-window-switcher     rofi -show window
+set $launcher-clipboard-insert    clipcat-menu insert
+set $launcher-clipboard-remove    clipcat-menu remove
+set $launcher-terminal            alacritty
+set $launcher-terminal-rdsk       alacritty --working-directory $HOME/ramdisk
+set $launcher-screenlock          slock
+set $launcher-set-wallpaper       $HOME/.config/i3/scripts/set-wallpaper
+set $launcher-input-method-daemon fcitx5 -r -d
+set $launcher-filemanager         pcmanfm
+set $launcher-screenlayout        $HOME/.config/screenlayout/default.sh
+set $launcher-polybar             $HOME/.config/polybar/launch.sh
+set $launcher-screenshot          $HOME/.config/i3/scripts/screenshot
+set $launcher-autorun             $HOME/.config/i3/scripts/autorun
+
+## i3wm modifier
+set $VISUAL nvim
+set $EDITOR nvim
+set $mod Mod4
+
+set $workspace-terminal0      "0 "
+set $workspace-terminal1      "1 "
+set $workspace-dev2           "2 "
+set $workspace-dev3           "3 "
+set $workspace-browser-user   "4 "
+set $workspace-browser-user2  "5 "
+set $workspace-terminal6      "6 "
+set $workspace-vm             "7 "
+set $workspace-browser-life   "8 "
+set $workspace-media          "9 "
+
+# General Configuration
+font pango:WenQuanYi MicroHei 0
+#font pango:NotoSansCJK-Regular 10
+hide_edge_borders both
+
+new_window normal 2 px
+
+# Window-Related Bindings
+bindsym $mod+Shift+q kill
+bindsym mod1+F4 kill
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+v layout toggle split
+bindsym $mod+f fullscreen toggle
+
+## change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+## scratchpad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+## toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+## focus the parent container
+bindsym $mod+a focus parent
+bindsym $mod+space focus mode_toggle
+bindsym $mod+r mode "  "
+mode "  " {
+    bindsym h resize shrink     width 10 px or 10 ppt
+        bindsym j resize grow       height 10 px or 10 ppt
+        bindsym k resize shrink     height 10 px or 10 ppt
+        bindsym l resize grow       width 10 px or 10 ppt
+        bindsym Escape mode "default"
+}
+
+# Mouse bindings
+bindsym --release button2 kill
+bindsym button3 floating toggle
+bindsym $mod+button3 floating toggle
+
+## The side buttons move the window around
+bindsym button9 move left
+bindsym button8 move right
+
+
+# Taking screenshot
+bindsym $mod+Shift+F12      exec $launcher-screenshot
+bindsym Print               exec $launcher-screenshot
+
+# Restart polybar
+bindsym $mod+Shift+p        exec $launcher-polybar
+
+# Restart-Related
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Program-Related Bindings
+bindsym $mod+Tab            exec $launcher-window-switcher
+bindsym $mod+d              exec $launcher-run-launcher
+bindsym $mod+t              exec $launcher-ssh-launcher
+bindsym $mod+c              exec $launcher-clipboard-insert
+bindsym $mod+p              exec $launcher-clipboard-insert
+bindsym $mod+o              exec $launcher-clipboard-remove
+bindsym $mod+Return         exec $launcher-terminal
+bindsym $mod+Shift+Return   exec $launcher-terminal-rdsk
+
+# Autostart
+## Setup screenlayout
+exec_always --no-startup-id $launcher-screenlayout
+
+## Start Polybar
+exec_always --no-startup-id $launcher-polybar
+
+## Setup wallpaper
+exec_always --no-startup-id $launcher-set-wallpaper
+
+## Start Picom compositing window manager
+exec --no-startup-id picom --daemon
+
+## Start clipboard manager
+exec_always --no-startup-id clipcatd
+
+## Autorun applications
+exec --no-startup-id $launcher-autorun
+
+## Start input method daemon
+exec_always --no-startup-id $launcher-input-method-daemon
+
+
+# switch to workspace
+bindsym $mod+0 workspace $workspace-terminal0
+bindsym $mod+1 workspace $workspace-terminal1
+bindsym $mod+2 workspace $workspace-dev2
+bindsym $mod+3 workspace $workspace-dev3
+bindsym $mod+4 workspace $workspace-browser-user
+bindsym $mod+5 workspace $workspace-browser-user2
+bindsym $mod+6 workspace $workspace-terminal6
+bindsym $mod+7 workspace $workspace-vm
+bindsym $mod+8 workspace $workspace-browser-life
+bindsym $mod+9 workspace $workspace-media
+
+# move focused container to workspace
+bindsym $mod+Shift+0 move container to workspace $workspace-terminal0
+bindsym $mod+Shift+1 move container to workspace $workspace-terminal1
+bindsym $mod+Shift+2 move container to workspace $workspace-dev2
+bindsym $mod+Shift+3 move container to workspace $workspace-dev3
+bindsym $mod+Shift+4 move container to workspace $workspace-browser-user
+bindsym $mod+Shift+5 move container to workspace $workspace-browser-user2
+bindsym $mod+Shift+6 move container to workspace $workspace-terminal6
+bindsym $mod+Shift+7 move container to workspace $workspace-vm
+bindsym $mod+Shift+8 move container to workspace $workspace-browser-life
+bindsym $mod+Shift+9 move container to workspace $workspace-media
+
+# bar toggle, hide or show
+#bindsym $mod+m bar mode toggle
+
+assign [class="Firefox-User"]              $workspace-browser-user
+assign [class="Firefox-[Life|Tor]"]    $workspace-browser-life
+assign [class="Firefox-Xnf"]               $workspace-browser-user2
+assign [class="chromium"]                  $workspace-browser-user2
+# assign [class="Clementin"]                 $workspace-media
+assign [class="cantata"]                   $workspace-media
+assign [class="VirtualBox"]                $workspace-vm
+
+# Floating Window
+# for_window [class="copyq"]              floating enable
+# for_window [class="Mist"]               floating enable
+
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Lock screen
+bindsym $mod+Shift+x exec --no-startup-id $launcher-screenlock
+
+# Volume & Media Bindings
+bindsym $mod+F10 exec --no-startup-id ponymix toggle
+bindsym $mod+F11 exec --no-startup-id ponymix decrease 10
+bindsym $mod+F12 exec --no-startup-id ponymix increase 10
+
+bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 10
+bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 10
+bindsym XF86AudioMute exec --no-startup-id ponymix toggle
+
+bindsym $mod+F8 exec playerctl play-pause
+bindsym $mod+F7 exec playerctl previous
+bindsym $mod+F9 exec playerctl next
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Sreen brightness controls
+## increase screen brightness
+bindsym XF86MonBrightnessUp exec valo screen up 5
+## decrease screen brightness
+bindsym XF86MonBrightnessDown exec valo screen down 5
+
+# Kebyboard LED brightness controls
+## increase keyboard brightness
+bindsym XF86KbdBrightnessUp   exec --no-startup-id valo keyboard up 10
+## decrease keyboard brightness
+bindsym XF86KbdBrightnessDown exec --no-startup-id valo keyboard down 10
+
+# class                 border      backgr.     text        indicator   child_border
+client.focused          #DEDEDE     #DEDEDE     #151718     #A074C4
+client.focused_inactive #676767     #676767     #DEDEDE     #9FCA56
+client.unfocused        #1F2326     #1F2326     #AAAAAA     #A074C4
+client.urgent           #CE4045     #CE4045     #FFFFFF     #DCCD69
+
+
+# vim:filetype=i3config

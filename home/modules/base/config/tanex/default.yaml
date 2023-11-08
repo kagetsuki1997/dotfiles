@@ -1,0 +1,44 @@
+---
+root_folders:
+  - name: "RAMDisk"
+    description: "RAMDisk"
+    root: "/tmp/$USER-ramdisk"
+    soft_links:
+      - "$HOME/ramdisk"
+    folders:
+      - path: cache
+        folders: []
+        description: "Temporary directory for cache"
+      - path: code
+        folders: []
+        description: "Temporary directory for code review"
+      - path: downloads
+        folders: []
+        description: "Download directory"
+      - path: mnt
+        folders: []
+        description: "Temporary mount point"
+      - path: music
+        folders: []
+        description: "Temporary directory for playing audio"
+      - path: test
+        folders: []
+        description: "Temporary directory for testing"
+      - path: tmp
+        folders: []
+        description: "Temporary directory"
+
+  - name: "Cache"
+    description: "Cache directory"
+    root: "/tmp/$USER-cache"
+    permissions: "700"
+    soft_links:
+      - "$HOME/.cache/chromium"
+      - "$HOME/.cache/google-chrome"
+      - "$HOME/.cache/google-chrome-beta"
+      - "$HOME/.cache/google-chrome-stable"
+      - "$HOME/.cache/kio_http"
+      - "$HOME/.cache/mozilla"
+      - "$HOME/.cache/opera"
+      - "$HOME/.cache/thumbnails"
+    folders: []

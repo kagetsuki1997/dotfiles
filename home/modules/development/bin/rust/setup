@@ -1,0 +1,23 @@
+#!/bin/sh
+
+if type rustup >/dev/null 2>&1; then
+    rustup install stable
+    rustup install nightly
+    rustup component add \
+        rust-src \
+        rustfmt \
+        clippy
+
+    rustup +nightly component add \
+        rust-analyzer-preview \
+        rustfmt \
+        clippy
+
+    rustup target add \
+        x86_64-unknown-linux-musl
+
+    rustup default stable
+
+    # ignore error code from cargo-install
+    exit 0
+fi

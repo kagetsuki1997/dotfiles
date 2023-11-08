@@ -1,0 +1,23 @@
+---
+nodes:
+  xapek:
+    description: PLSM Lab
+targets:
+  scripts:
+    path: ~/scripts/
+  projects:
+    path: ~/projects/
+  bin:
+    path: ~/bin/
+  dotfiles:
+    path: ~/dotfiles/
+  docker:
+    path: ~/docker/
+  "config-ssh":
+    path: "~/config-ssh/"
+  wallpapers:
+    path: ~/Wallpapers/
+  gopath:
+    path: ~/gopath/
+  music:
+    path: ~/Music/

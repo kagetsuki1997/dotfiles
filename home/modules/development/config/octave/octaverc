@@ -1,0 +1,9 @@
+
+# Clear the startup screen
+clc;
+
+# Setup prompt
+PS1(">> ")
+
+# Show Octave version
+disp(sprintf("GNU Octave, version %s", version))
