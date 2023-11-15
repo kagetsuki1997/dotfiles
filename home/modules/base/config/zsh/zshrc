@@ -1,65 +1,65 @@
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_BIN_HOME="$HOME/.local/bin"
+# export XDG_CONFIG_HOME="$HOME/.config"
+# export XDG_CACHE_HOME="$HOME/.cache"
+# export XDG_DATA_HOME="$HOME/.local/share"
+# export XDG_BIN_HOME="$HOME/.local/bin"
 
-export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
-export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
-export ZSH_COMPDUMP="$ZSH_CACHE/zcompdump-$ZSH_VERSION"
+# export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
+# export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
+# export ZSH_COMPDUMP="$ZSH_CACHE/zcompdump-$ZSH_VERSION"
 
-export ZSH_DEFAULT_PROMPT_STYLE="powerline-go"
+# export ZSH_DEFAULT_PROMPT_STYLE="powerline-go"
 
-if [[ $ZSH_PROMPT_STYLE = "" ]]; then
-    ZSH_PROMPT_STYLE=$ZSH_DEFAULT_PROMPT_STYLE
-fi
+# if [[ $ZSH_PROMPT_STYLE = "" ]]; then
+#     ZSH_PROMPT_STYLE=$ZSH_DEFAULT_PROMPT_STYLE
+# # fi
 
-mkdir -p $ZSH_CACHE
+# mkdir -p $ZSH_CACHE
 
-source "$ZSH_CONFIG/config.d/os-detect.zsh"
+# source "$ZSH_CONFIG/config.d/os-detect.zsh"
 
-typeset -ga sources
+# typeset -ga sources
 
-sources=(
-# zsh configurations
-"$ZSH_CONFIG/config.d/default.zsh"
-"$ZSH_CONFIG/config.d/rust.zsh"
-"$ZSH_CONFIG/config.d/golang.zsh"
-"$ZSH_CONFIG/config.d/nodejs.zsh"
-"$ZSH_CONFIG/config.d/virtualisation.zsh"
-"$ZSH_CONFIG/config.d/ssh.zsh"
-"$ZSH_CONFIG/config.d/gpg.zsh"
-"$ZSH_CONFIG/config.d/path.zsh"
-"$ZSH_CONFIG/config.d/history.zsh"
-"$ZSH_CONFIG/config.d/bindkeys.zsh"
-"$ZSH_CONFIG/config.d/prompt.zsh"
-"$ZSH_CONFIG/config.d/platforms/$KERNEL.zsh"
-"$ZSH_CONFIG/config.d/completion.zsh"
+# sources=(
+# # zsh configurations
+# "$ZSH_CONFIG/config.d/default.zsh"
+# "$ZSH_CONFIG/config.d/rust.zsh"
+# "$ZSH_CONFIG/config.d/golang.zsh"
+# "$ZSH_CONFIG/config.d/nodejs.zsh"
+# "$ZSH_CONFIG/config.d/virtualisation.zsh"
+# "$ZSH_CONFIG/config.d/ssh.zsh"
+# "$ZSH_CONFIG/config.d/gpg.zsh"
+# "$ZSH_CONFIG/config.d/path.zsh"
+# "$ZSH_CONFIG/config.d/history.zsh"
+# "$ZSH_CONFIG/config.d/bindkeys.zsh"
+# "$ZSH_CONFIG/config.d/prompt.zsh"
+# "$ZSH_CONFIG/config.d/platforms/$KERNEL.zsh"
+# "$ZSH_CONFIG/config.d/completion.zsh"
 
-# aliases
-"$ZSH_CONFIG/aliases.d/aliases.zsh"
-"$ZSH_CONFIG/aliases.d/aliases-yawerty.zsh"
+# # aliases
+# "$ZSH_CONFIG/aliases.d/aliases.zsh"
+# "$ZSH_CONFIG/aliases.d/aliases-yawerty.zsh"
 
-# functions
-"$ZSH_CONFIG/functions.zsh"
-"$ZSH_CONFIG/functions.d/ssh.zsh"
-"$ZSH_CONFIG/functions.d/downloaders.zsh"
-"$ZSH_CONFIG/functions.d/clipboard.zsh"
-"$ZSH_CONFIG/functions.d/docker.zsh"
-"$ZSH_CONFIG/functions.d/x.zsh"
-"$ZSH_CONFIG/functions.d/screenshot.zsh"
-"$ZSH_CONFIG/functions.d/terminal.zsh"
+# # functions
+# "$ZSH_CONFIG/functions.zsh"
+# "$ZSH_CONFIG/functions.d/ssh.zsh"
+# "$ZSH_CONFIG/functions.d/downloaders.zsh"
+# "$ZSH_CONFIG/functions.d/clipboard.zsh"
+# "$ZSH_CONFIG/functions.d/docker.zsh"
+# "$ZSH_CONFIG/functions.d/x.zsh"
+# "$ZSH_CONFIG/functions.d/screenshot.zsh"
+# "$ZSH_CONFIG/functions.d/terminal.zsh"
 
-# fzf
-"$ZSH_CONFIG/functions.d/fzf/key-bindings.zsh"
-"$ZSH_CONFIG/functions.d/fzf/completion.zsh"
-)
+# # fzf
+# "$ZSH_CONFIG/functions.d/fzf/key-bindings.zsh"
+# "$ZSH_CONFIG/functions.d/fzf/completion.zsh"
+# )
 
-# try to include all sources
-foreach file (`echo $sources`)
-    if [[ -a $file ]]; then
-        source $file
-    fi
-end
+# # try to include all sources
+# foreach file (`echo $sources`)
+#     if [[ -a $file ]]; then
+#         source $file
+#     fi
+# end
 
 show-system-info() {
 local INFO_TOOL=

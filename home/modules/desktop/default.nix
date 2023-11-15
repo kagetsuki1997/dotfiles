@@ -44,21 +44,21 @@
       # "i3/scripts/set-wallpaper".source = ./config/i3/scripts/set-wallpaper;
       # "i3/scripts/toggle-touchpad".source = ./config/i3/scripts/toggle-touchpad;
 
-      "leftwm/config.ron".source = ./config/leftwm/config.ron;
-      "leftwm/scripts/screenshot".source = ./config/leftwm/scripts/screenshot;
-      "leftwm/scripts/set-wallpaper".source = ./config/leftwm/scripts/set-wallpaper;
-      "leftwm/themes/current" = {
-        source = ./config/leftwm/themes/default;
-        recursive = true;
-      };
+      # "leftwm/config.ron".source = ./config/leftwm/config.ron;
+      # "leftwm/scripts/screenshot".source = ./config/leftwm/scripts/screenshot;
+      # "leftwm/scripts/set-wallpaper".source = ./config/leftwm/scripts/set-wallpaper;
+      # "leftwm/themes/current" = {
+      #   source = ./config/leftwm/themes/default;
+      #   recursive = true;
+      # };
 
-      "rofi/config.rasi".source = ./config/rofi/config.rasi;
-      "polybar".source = ./config/polybar;
-      "picom.conf".source = ./config/picom/picom.conf;
-      "screenlayout/default.sh" = {
-        executable = true;
-        text = screenlayoutScript;
-      };
+      # "rofi/config.rasi".source = ./config/rofi/config.rasi;
+      # "polybar".source = ./config/polybar;
+      # "picom.conf".source = ./config/picom/picom.conf;
+      # "screenlayout/default.sh" = {
+      #   executable = true;
+      #   text = screenlayoutScript;
+      # };
 
       "fcitx5/config".source = ./config/fcitx5/config;
       "fcitx5/profile".source = ./config/fcitx5/profile;

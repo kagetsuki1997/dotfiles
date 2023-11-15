@@ -11,8 +11,9 @@ $jobs\
 $rust\
 $status\
 $nix_shell\
-$character\
 $cmd_duration\
+$line_break\
+$character\
 """
 
 # right_format = """
@@ -26,7 +27,7 @@ $cmd_duration\
 # $aws\
 # """
 
-add_newline = false
+add_newline = true
 
 [username]
 show_always = true
@@ -84,7 +85,7 @@ deleted = "${count}✘ "
 
 [cmd_duration]
 min_time = 500
-format = 'underwent [$duration](bold yellow)'
+format = '[$duration](bold yellow)'
 
 [aws]
 symbol = "☁️"

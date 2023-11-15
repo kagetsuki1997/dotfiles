@@ -1,8 +1,8 @@
 { config, ... }:
 
 {
-  config.programs.bat = {
-    enable = true;
-    config.theme = "OneHalfDark";
-  };
+  # config.programs.bat = {
+  #   enable = true;
+  #   config.theme = "OneHalfDark";
+  # };
 }

@@ -20,6 +20,7 @@
       core = {
         pager = "delta";
         askPass = "";
+        editor = "nvim";
       };
 
 
