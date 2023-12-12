@@ -11,7 +11,7 @@
 {
   imports = [
     ./config/fcitx.nix
-    # ./config/gtk.nix
+    ./config/gtk.nix
   ];
 
   config = {

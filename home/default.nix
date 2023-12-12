@@ -75,6 +75,7 @@ let
 in
 {
   "kagetsuki@nixosvm" = hmConfiguration {
+    screenlayoutScript = builtins.readFile ./hosts/nixosvm/desktop/config/screenlayout/single.sh;
     extraModules = [ ./hosts/nixosvm/default.nix ];
   };
 

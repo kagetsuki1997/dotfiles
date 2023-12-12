@@ -51,6 +51,7 @@ with pkgs; [
       jnoortheen.nix-ide
       shardulm94.trailing-spaces
       tamasfe.even-better-toml
+      golang.go
     ]
     ++ vscode-utils.extensionsFromVscodeMarketplace [
       {

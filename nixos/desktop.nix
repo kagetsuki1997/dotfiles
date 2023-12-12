@@ -5,7 +5,16 @@
     enable = true;
 
     desktopManager.xterm.enable = false;
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+      theme = "abstractdark";
+      settings = {
+        Theme = {
+          ThemeDir = "${pkgs.sddm-themes.abstractdark}/share/sddm/themes";
+        };
+      };
+    };
 
     # Enable KDE
     desktopManager.plasma5.enable = true;

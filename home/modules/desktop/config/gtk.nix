@@ -50,13 +50,13 @@
       bookmarks = [
         "file:///home/kagetsuki Home"
         "file:///home/kagetsuki/Downloads Downloads"
-        "file:///home/kagetsuki/sources sources"
+        # "file:///home/kagetsuki/sources sources"
         "file:///home/kagetsuki/dotfiles dotfiles"
-        "file:///home/kagetsuki/scripts scripts"
-        "file:///home/kagetsuki/projects projects"
-        "file:///home/kagetsuki/Music Music"
-        "file:///home/kagetsuki/git git"
-        "file:///home/kagetsuki/screenshots"
+        # "file:///home/kagetsuki/scripts scripts"
+        # "file:///home/kagetsuki/projects projects"
+        # "file:///home/kagetsuki/Music Music"
+        # "file:///home/kagetsuki/git git"
+        # "file:///home/kagetsuki/screenshots"
       ];
     };
   };

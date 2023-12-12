@@ -171,6 +171,14 @@ let
           version = "1.0.0";
           sha256 = "b4dfe3946d8fcee882784469810bdda83a1add482b51a33b7ca1efe8a16aba37";
         }
+      ]
+      ++ vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "Go";
+          publisher = "golang";
+          version = "0.39.1";
+          sha256 = "8006930a605fc8f33976d43a1d28f5b9e5ba388b9cecde72942b44a7c3d1484e";
+        }
       ];
     })
 

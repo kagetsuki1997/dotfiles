@@ -30,8 +30,8 @@
   };
 
   # Enable aria2 and automatically start it.
-  services.aria2-user = {
-    enable = true;
-    autoStart = true;
-  };
+  # services.aria2-user = {
+  #   enable = true;
+  #   autoStart = true;
+  # };
 }
