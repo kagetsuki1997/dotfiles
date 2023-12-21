@@ -94,6 +94,7 @@ let
   golang = with pkgs; [
     go
     gopls
+    golint
 
     go2nix
   ];

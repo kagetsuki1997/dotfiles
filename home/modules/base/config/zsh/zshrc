@@ -110,4 +110,4 @@ eval "$(starship init zsh)"
 
 source .xprofile
 
-export GOPATH=$HOME/Go
+export GOPATH=$HOME/mygo
