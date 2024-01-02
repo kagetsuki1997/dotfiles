@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-export GOPATH=$HOME/go
+export GOPATH=$HOME/mygo

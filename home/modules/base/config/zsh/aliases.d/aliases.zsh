@@ -17,10 +17,10 @@ fi
 
 ##### standard aliases (start with a space to be ignored in history)
 # default ls is untouched, except coloring
-if type exa >/dev/null 2>&1; then
-    alias myls='exa -s type'
-    alias ls='exa -s type'
-    alias la='exa -la -s type'
+if type eza >/dev/null 2>&1; then
+    alias myls='eza -s type'
+    alias ls='eza -s type'
+    alias la='eza -la -s type'
 else
     alias myls=' ls -C -F -h --color=always'
     alias ls=' ls --color=auto'

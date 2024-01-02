@@ -2,9 +2,9 @@
   hardware = {
     opengl.driSupport32Bit = true;
     pulseaudio = {
-      enable = true;
-      daemon.config = { flat-volumes = "no"; };
-      package = pkgs.pulseaudioFull;
+      enable = false;
+      # daemon.config = { flat-volumes = "no"; };
+      # package = pkgs.pulseaudioFull;
     };
   };
 }

@@ -86,7 +86,7 @@
       ) // {
       overlays = [
         (final: prev: (import ./nixpkgs) final prev)
-        nix-repo.overlay
+        nix-repo.overlays.default
       ];
 
       nixosConfigurations = import ./nixos {

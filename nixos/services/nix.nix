@@ -59,7 +59,7 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      pulseaudio = true;
+      # pulseaudio = true;
     };
   };
 }

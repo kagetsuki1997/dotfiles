@@ -168,36 +168,36 @@
       clipcat
       xclip
 
-      notify-osd
-      libnotify
+      # notify-osd
+      # libnotify
 
-      feh
-      picom
-      polybar
-      rofi
-      slock
+      # feh
+      # picom
+      # polybar
+      # rofi
+      # slock
 
-      scrot
-      maim
+      # scrot
+      # maim
 
-      pavucontrol
-      ponymix
+      # pavucontrol
+      # ponymix
 
-      rdesktop
+      # rdesktop
 
-      evince
-      pcmanfm
-      qimgv
+      # evince
+      # pcmanfm
+      # qimgv
 
-      shared-mime-info
-      gtk-engine-murrine
+      # shared-mime-info
+      # gtk-engine-murrine
 
-      adwaita-qt
-      arc-icon-theme
-      arc-theme
-      hicolor-icon-theme
-      paper-icon-theme
-      qt5ct
+      # adwaita-qt
+      # arc-icon-theme
+      # arc-theme
+      # hicolor-icon-theme
+      # paper-icon-theme
+      # qt5ct
 
       font-manager
 

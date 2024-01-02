@@ -112,7 +112,7 @@ let
     nodePackages.vscode-langservers-extracted
   ];
 
-  python = with pkgs; [ python2 python3 ];
+  python = with pkgs; [ python3 ];
 
   java = with pkgs; [ openjdk ];
 
@@ -158,30 +158,30 @@ let
   firmware = with pkgs; [ ];
 
   ide = with pkgs; [
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        rust-lang.rust-analyzer
-        jnoortheen.nix-ide
-        shardulm94.trailing-spaces
-        tamasfe.even-better-toml
-      ]
-      ++ vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "change-case";
-          publisher = "wmaurer";
-          version = "1.0.0";
-          sha256 = "b4dfe3946d8fcee882784469810bdda83a1add482b51a33b7ca1efe8a16aba37";
-        }
-      ]
-      ++ vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "Go";
-          publisher = "golang";
-          version = "0.39.1";
-          sha256 = "8006930a605fc8f33976d43a1d28f5b9e5ba388b9cecde72942b44a7c3d1484e";
-        }
-      ];
-    })
+    # (vscode-with-extensions.override {
+    #   vscodeExtensions = with vscode-extensions; [
+    #     rust-lang.rust-analyzer
+    #     jnoortheen.nix-ide
+    #     shardulm94.trailing-spaces
+    #     tamasfe.even-better-toml
+    #   ]
+    #   ++ vscode-utils.extensionsFromVscodeMarketplace [
+    #     {
+    #       name = "change-case";
+    #       publisher = "wmaurer";
+    #       version = "1.0.0";
+    #       sha256 = "b4dfe3946d8fcee882784469810bdda83a1add482b51a33b7ca1efe8a16aba37";
+    #     }
+    #   ]
+    #   ++ vscode-utils.extensionsFromVscodeMarketplace [
+    #     {
+    #       name = "Go";
+    #       publisher = "golang";
+    #       version = "0.39.1";
+    #       sha256 = "8006930a605fc8f33976d43a1d28f5b9e5ba388b9cecde72942b44a7c3d1484e";
+    #     }
+    #   ];
+    # })
 
     insomnia
     jetbrains.datagrip

@@ -14,13 +14,13 @@ alias a.out='./a.out'
 
 ##### standard aliases (start with a space to be ignored in history)
 # default ls is untouched, except coloring
-if type exa >/dev/null 2>&1; then
-    alias myls='exa'
-    alias ls='exa'
-    alias la='exa -la'
-    alias lt='exa --tree'
-    alias llt='exa -l --tree'
-    alias llta='exa -la --tree'
+if type eza >/dev/null 2>&1; then
+    alias myls='eza'
+    alias ls='eza'
+    alias la='eza -la'
+    alias lt='eza --tree'
+    alias llt='eza -l --tree'
+    alias llta='eza -la --tree'
 else
     alias myls=' ls -C -F -h --color=always'
     alias ls=' ls --color=auto'

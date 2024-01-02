@@ -88,39 +88,39 @@
     };
 
     home.packages = with pkgs; [
-      efivar
-      efibootmgr
+      # efivar
+      # efibootmgr
 
-      dmidecode
-      iw
-      lshw
-      pciutils
-      sysfsutils
-      usbutils
-      wavemon
+      # dmidecode
+      # iw
+      # lshw
+      # pciutils
+      # sysfsutils
+      # usbutils
+      # wavemon
 
-      gparted
-      gptfdisk
-      hdparm
-      parted
-      smartmontools
+      # gparted
+      # gptfdisk
+      # hdparm
+      # parted
+      # smartmontools
 
-      exa
+      eza
       just
       procs
 
-      (hiPrio procps)
-      psmisc
+      # (hiPrio procps)
+      # psmisc
 
       htop
       powertop
       bottom
       # kmon
 
-      lsof
-      lm_sensors
-      nethogs
-      vnstat
+      # lsof
+      # lm_sensors
+      # nethogs
+      # vnstat
 
       fuseiso
       f2fs-tools
@@ -163,12 +163,12 @@
       curl
       wget
 
-      gnupg
+      # gnupg
 
       powerline-go
 
-      fzf
-      skim
+      # fzf
+      # skim
 
       # extra.tanex
       # extra.tunka
@@ -187,8 +187,8 @@
       openssl
       tree
 
-      tealdeer
-      pal
+      # tealdeer
+      # pal
 
       vimv-rs
 
