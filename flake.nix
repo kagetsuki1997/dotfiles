@@ -85,7 +85,7 @@
       }
       ) // {
       overlays = [
-        (final: prev: (import ./nixpkgs) final prev)
+        # (final: prev: (import ./nixpkgs) final prev)
         nix-repo.overlays.default
       ];
 

@@ -188,7 +188,7 @@ return require("packer").startup(function(use)
     end
 
     require("plugins.configs.lualine")
-    require("plugins.configs.bufferline")
+    -- require("plugins.configs.bufferline")
     require("plugins.configs.better-whitespace")
     -- require("plugins.configs.indent-blankline")
     require("plugins.configs.completion")

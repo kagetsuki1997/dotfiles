@@ -1,7 +1,7 @@
 { pkgs }:
 
 with pkgs; [
-  firefox
+  # firefox
   nixpkgs-fmt
 
   # efivar

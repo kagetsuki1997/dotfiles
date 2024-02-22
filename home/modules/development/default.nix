@@ -6,7 +6,7 @@
 
 let
   common = with pkgs; [
-    binutils
+    # binutils
     man-pages
     patchelf
     tokei
@@ -53,9 +53,14 @@ let
     clang-analyzer
     clang-tools
 
-    gdb
+    # gdb
     lldb
-    valgrind
+    lld
+    llvm
+    # zlib
+    libz
+    libiconv
+    # valgrind
   ];
 
   rust = with pkgs; [
@@ -96,7 +101,7 @@ let
     gopls
     golint
 
-    go2nix
+    #go2nix
   ];
 
   webdev = with pkgs; [
@@ -183,7 +188,7 @@ let
     #   ];
     # })
 
-    insomnia
+    # insomnia
     jetbrains.datagrip
   ];
 

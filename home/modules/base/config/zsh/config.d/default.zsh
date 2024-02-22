@@ -3,11 +3,11 @@ export PAGER='less'
 export LESSOPEN="| /usr/bin/env src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
-if [ -n "$DISPLAY" ]; then
-    export BROWSER='firefox'
-else
-    export BROWSER='links'
-fi
+# if [ -n "$DISPLAY" ]; then
+#     export BROWSER='firefox'
+# else
+#     export BROWSER='links'
+# fi
 
 if type nvim >/dev/null 2>&1; then
     export EDITOR='nvim'

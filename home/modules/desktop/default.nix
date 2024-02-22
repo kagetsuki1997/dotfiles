@@ -11,7 +11,7 @@
 {
   imports = [
     ./config/fcitx.nix
-    ./config/gtk.nix
+    #./config/gtk.nix
   ];
 
   config = {
@@ -30,12 +30,12 @@
     }
     // (if enableHiDPI then { "Xft.dpi" = 128; } else { });
 
-    home.pointerCursor = {
-      x11.enable = true;
-      name = "Paper";
-      size = if enableHiDPI then 48 else 16;
-      package = pkgs.paper-icon-theme;
-    };
+    # home.pointerCursor = {
+    #   x11.enable = true;
+    #   name = "Paper";
+    #   size = if enableHiDPI then 48 else 16;
+    #   package = pkgs.paper-icon-theme;
+    # };
 
     xdg.configFile = {
       # "i3/config".source = ./config/i3/config;
@@ -165,7 +165,7 @@
       xorg.xhost
       xorg.xkill
 
-      clipcat
+      # clipcat
       xclip
 
       # notify-osd
@@ -199,7 +199,7 @@
       # paper-icon-theme
       # qt5ct
 
-      font-manager
+      # font-manager
 
       # for previewing image while using ranger
       python3Packages.ueberzug

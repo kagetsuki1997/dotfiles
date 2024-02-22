@@ -2,7 +2,7 @@
 
 {
   xdg.mimeApps = {
-    enable = true;
+    enable = false;
     defaultApplications =
       let
         # take from the respective mimetype files

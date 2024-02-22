@@ -26,13 +26,13 @@
     };
 
     xdg.configFile = {
-      "nix/nix.conf".text =
-        builtins.readFile
-          (
-            # if enableRemoteNixBuilders then ./config/nix/nix.conf
-            # else ./config/nix/fallback-nix.conf
-            ./config/nix/fallback-nix.conf
-          );
+      # "nix/nix.conf".text =
+      #   builtins.readFile
+      #     (
+      #       # if enableRemoteNixBuilders then ./config/nix/nix.conf
+      #       # else ./config/nix/fallback-nix.conf
+      #       ./config/nix/fallback-nix.conf
+      #     );
       # +
       # ''
       #   access-token = github.com=${sops.secrets.github_token}
@@ -79,7 +79,7 @@
     };
 
     services.gpg-agent = {
-      enable = true;
+      enable = false;
       pinentryFlavor = "curses";
       defaultCacheTtl = 864000;
       defaultCacheTtlSsh = 864000;
@@ -113,7 +113,7 @@
       # psmisc
 
       htop
-      powertop
+      # powertop
       bottom
       # kmon
 
@@ -122,13 +122,13 @@
       # nethogs
       # vnstat
 
-      fuseiso
-      f2fs-tools
-      exfat
-      ntfs3g
-      go-mtpfs
-      archivemount
-      libarchive
+      # fuseiso
+      # f2fs-tools
+      # exfat
+      # ntfs3g
+      # go-mtpfs
+      # archivemount
+      # libarchive
 
       neovim
       tree-sitter
@@ -192,9 +192,9 @@
 
       vimv-rs
 
-      xenon
-      axdot
-      eriksync
+      # xenon
+      # axdot
+      # eriksync
     ];
   };
 }

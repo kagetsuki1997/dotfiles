@@ -10,6 +10,8 @@
 let
   hmConfiguration =
     { system ? "x86_64-linux"
+    , user ? "kagetsuki"
+    , home ? "/home"
     , extraModules ? [ ]
     , enableRemoteNixBuilders ? true
     , enableHiDPI ? false
@@ -31,8 +33,8 @@ let
       modules = [
         {
           home = {
-            username = "kagetsuki";
-            homeDirectory = "/home/kagetsuki";
+            username = "${user}";
+            homeDirectory = "${home}/${user}";
             stateVersion = "23.05";
           };
 
@@ -76,6 +78,17 @@ in
 {
   "kagetsuki@nixosvm" = hmConfiguration {
     screenlayoutScript = builtins.readFile ./hosts/nixosvm/desktop/config/screenlayout/single.sh;
+    extraModules = [ ./hosts/nixosvm/default.nix ];
+  };
+
+  "jacklin@macbook" = hmConfiguration {
+    system = "aarch64-darwin";
+    user = "jacklin";
+    home = "/Users";
+    withBrowsers = false;
+    withMultimedia = false;
+    withMobile = false;
+    withDownloaders = false;
     extraModules = [ ./hosts/nixosvm/default.nix ];
   };
 

@@ -31,30 +31,30 @@ add_newline = true
 
 [username]
 show_always = true
-style_user = "fg:#43E2FA"
-style_root = "fg:#43E2FA"
+# style_user = "fg:#43E2FA"
+# style_root = "fg:#43E2FA"
 format = '[$user ]($style)'
 disabled = false
 
 [hostname]
 ssh_only = false
-style = "fg:#6FFC28"
+# style = "fg:#6FFC28"
 ssh_symbol = "🌐"
 format = '[$hostname $ssh_symbol]($style)'
 
 [jobs]
 number_threshold = 1
-style = "fg:#DDDDDD"
+# style = "fg:#DDDDDD"
 format = "[ $number$symbol ]($style)"
 
 [status]
-style = "fg:#FC284F"
+# style = "fg:#FC284F"
 format = '[ $common_meaning$signal_name$maybe_int ]($style)'
 map_symbol = true
 disabled = false
 
 [directory]
-style = "fg:#D43E3E"
+# style = "fg:#D43E3E"
 format = "[$path ]($style)"
 truncate_to_repo = false
 truncation_length = 0
@@ -65,11 +65,12 @@ truncation_length = 0
 "Pictures" = " "
 
 [git_branch]
-style = "fg:#FCE728"
+# style = "fg:#FCE728"
+symbol = "🌱"
 format = "[$symbol$branch ]($style)"
 
 [git_status]
-style = "fg:#D13FCE"
+# style = "fg:#D13FCE"
 format = "[$all_status$ahead_behind]($style)"
 conflicted = "="
 ahead = "${count}⬆ "
@@ -89,84 +90,84 @@ format = '[$duration](bold yellow)'
 
 [aws]
 symbol = "☁️"
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol($profile) ($region) ]($style)'
 
 [docker_context]
-symbol = ""
-style = "fg:#86BBD8"
+symbol = "🐳"
+# style = "fg:#86BBD8"
 format = '[$symbol $context ]($style)'
 only_with_files = false
 
 [kubernetes]
 symbol = "☸ "
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol $context ($namespace)]($style)'
 
 [c]
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [elixir]
 disabled = true
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [elm]
 disabled = true
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [golang]
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [haskell]
 disabled = true
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [java]
 disabled = true
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [julia]
 disabled = true
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [nodejs]
 disabled = true
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [nim]
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [nix_shell]
 symbol = "❄️"
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ]($style)'
 
 [rust]
 symbol = "🦀"
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [scala]
 # symbol = ""
-style = "fg:#86BBD8"
+# style = "fg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
 [time]

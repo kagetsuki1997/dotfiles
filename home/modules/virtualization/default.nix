@@ -8,11 +8,11 @@
     home.packages =
       with pkgs; [
         # libguestfs-with-appliance
-        libvirt
+        # libvirt
         # qemu
 
-        firecracker
-        firectl
+        # firecracker
+        # firectl
       ]
       ++ (if withVirtualisationGUISupports then with pkgs; [ virt-viewer virt-manager ] else [ ]);
   };

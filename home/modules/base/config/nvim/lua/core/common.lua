@@ -16,7 +16,6 @@ wo.foldenable = true
 -- Appearance
 cmd([[
     syntax on
-    colorscheme onedark
 ]])
 
 opt.number = true
