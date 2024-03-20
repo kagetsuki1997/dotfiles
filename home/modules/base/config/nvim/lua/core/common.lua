@@ -20,7 +20,7 @@ cmd([[
 
 opt.number = true
 opt.wrap = true
-opt.colorcolumn = "100" -- Highlight the 100th character limit
+-- opt.colorcolumn = "100" -- Highlight the 100th character limit
 opt.scrolloff = 5 -- Keep at least 5 lines above/below
 opt.showcmd = true -- Show command in status line
 opt.cursorline = true -- Show cursorline
